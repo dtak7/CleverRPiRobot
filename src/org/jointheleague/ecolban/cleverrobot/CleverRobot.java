@@ -22,13 +22,24 @@ public class CleverRobot extends IRobotAdapter {
 		IRobotInterface base = new SimpleIRobot();
 		CleverRobot rob = new CleverRobot(base);
 		rob.setup();
+	
 		while(rob.loop()){}
 		rob.shutDown();
 		
 	}
 
 	private void setup() throws Exception {
-		driveDirect(100,100);
+		for (int i = 0; i <10; i++) {
+			driveDirect(100,100);
+			Thread.sleep(1000);
+			driveDirect(0,0);
+			driveDirect(500,-500);
+			Thread.sleep(100);
+			driveDirect(0,0);
+		}
+			driveDirect(500,-500);
+			Thread.sleep(5000);
+			driveDirect(0,0);
 	}
 	
 	private boolean loop() throws Exception{
